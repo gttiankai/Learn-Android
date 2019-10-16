@@ -16,11 +16,12 @@ import android.widget.Toast;
 
 import java.io.DataOutput;
 
-public class FirstActivity extends AppCompatActivity {
+public class FirstActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("FirstActivity", "Task id is " + getTaskId());
         setContentView(R.layout.first_layout);
         Button button_1 = findViewById(R.id.button_1);
         button_1.setOnClickListener(new View.OnClickListener() {
@@ -38,12 +39,14 @@ public class FirstActivity extends AppCompatActivity {
 //                intent.setData(Uri.parse("http://www.tencent.com"));
 //                startActivity(intent);
                 // intent 在 activity 之间传递信息
-                String data = "Hello SecondActivity";
+//                String data = "Hello SecondActivity";
+//                Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
+//                intent.putExtra("extra_data", data);
+//                //startActivity(intent);
+//
+//                startActivityForResult(intent, 1);
                 Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
-                intent.putExtra("extra_data", data);
-                //startActivity(intent);
-
-                startActivityForResult(intent, 1);
+                startActivity(intent);
 
             }
         });
@@ -80,5 +83,11 @@ public class FirstActivity extends AppCompatActivity {
                 break;
                 default:
         }
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d("FirstActivity","onRestart");
     }
 }

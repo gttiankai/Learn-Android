@@ -15,14 +15,16 @@
 
         <activity
             android:name=".FirstActivity"
-            android:label="This is first activity">
+            android:label="This is first activity"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.Main" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SecondActivity">
+        <activity android:name=".SecondActivity"
+            android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="com.lucas.activitytest.ACTION_START" />
 
@@ -34,7 +36,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
-                <data android:scheme="http"/>
+                <data android:scheme="http" />
             </intent-filter>
         </activity>
     </application>
